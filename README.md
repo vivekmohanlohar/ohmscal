@@ -9,7 +9,7 @@ This project explores the practical application of Ohm's Law in electrical engin
 3. **Calculations**: Develop tools for easy calculations of voltage, current, and resistance using Ohm's Law equations.
 
 ## Getting Started
-1. **Clone the Repository**: Use the command `git clone https://github.com/vivekmohanlohar/ohmcal.git` to obtain the project files.
+1. **Clone the Repository**: Use the command `git clone https://github.com/vivekmohanlohar/ohmscal.git` to obtain the project files.
 2. **Explore the Project**: Navigate through the project directories and review the accompanying documentation.
 
 ## How to Use
