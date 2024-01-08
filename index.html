@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #3BB09E; /* Your theme color */
+        }
+
+        .calculator-container {
+            background-color: #091930; /* Your background color */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            margin: 0 20px; /* Added space on both sides */
+        }
+
+        input, button {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 25px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        /* Add more styles and icons as needed */
+    </style>
+    <title>Ohm's Law Calculator</title>
+</head>
+<body>
+    <div class="calculator-container">
+        <h1 style="color: #3BB09E;">Ohm's Law Calculator</h1>
+        <div class="input-container">
+            <label for="voltage" style="color: #ffffff;">Voltage (V):</label>
+            <input type="number" id="voltage" placeholder="Enter voltage">
+        </div>
+        <div class="input-container">
+            <label for="current" style="color: #ffffff;">Current (I):</label>
+            <input type="number" id="current" placeholder="Enter current">
+        </div>
+        <div class="input-container">
+            <label for="resistance" style="color: #ffffff;">Resistance (R):</label>
+            <input type="number" id="resistance" placeholder="Enter resistance">
+        </div>
+        <button id="calculateButton">
+            Calculate
+            <!-- Add your icon here, for example: <img src="icon.png" alt="Icon"> -->
+        </button>
+        <div id="result"></div>
+    </div>
+<script>
+       document.getElementById('calculateButton').addEventListener('click', calculate);
+    
+       function calculate() {
+          const voltage = parseFloat(document.getElementById('voltage').value);
+          const current = parseFloat(document.getElementById('current').value);
+          const resistance = parseFloat(document.getElementById('resistance').value);
+    
+          const values = [voltage, current, resistance];
+          const nonZeroValues = values.filter(value => !isNaN(value) && value !== 0);
+    
+          if (nonZeroValues.length !== 2) {
+             alert('Please enter exactly two non-zero values.');
+             return;
+          }
+    
+          if (!isNaN(voltage) && !isNaN(current)) {
+             const calculatedResistance = voltage / current;
+             document.getElementById('result').innerText = `Resistance (R): ${calculatedResistance.toFixed(2)} ohms`;
+          } else if (!isNaN(voltage) && !isNaN(resistance)) {
+             const calculatedCurrent = voltage / resistance;
+             document.getElementById('result').innerText = `Current (I): ${calculatedCurrent.toFixed(2)} amps`;
+          } else if (!isNaN(current) && !isNaN(resistance)) {
+             const calculatedVoltage = current * resistance;
+             document.getElementById('result').innerText = `Voltage (V): ${calculatedVoltage.toFixed(2)} volts`;
+          }
+       }
+    </script>
+</body>
+</html>
+
+<!-- Designed and Developed By Vivek Lohar -->
